@@ -20,7 +20,7 @@ jobs:
       - name: Run Biome lint
         run: pnpm run lint
   build-and-test:
-    name: Build and test
+    name: Build and Unit Test
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -29,5 +29,5 @@ jobs:
           node-version: '${{ env.NODE_VERSION }}'
           pnpm-version: '${{ env.PNPM_VERSION }}'
       - run: pnpm run build
-      - run: pnpm run test
+      - run: pnpm run test:vitest
     timeout-minutes: 15

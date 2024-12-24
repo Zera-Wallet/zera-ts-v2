@@ -1,8 +1,8 @@
-import { randomBytes } from "../src/randomBytes";
-import { bytesToBinary } from "../src/bytesToBinary";
 import { binaryToBytes } from "../src/binaryToBytes";
+import { bytesToBinary } from "../src/bytesToBinary";
+import { randomBytes } from "../src/randomBytes";
 
-import { describe, test, expect } from "vitest";
+import { describe, expect, test } from "vitest";
 
 describe("randomBytes", () => {
     test("returns Uint8Array with specified length", () => {
