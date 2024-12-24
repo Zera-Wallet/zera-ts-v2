@@ -1,0 +1,17 @@
+{
+    "name": "@zera-ts/bytes",
+    "version": "0.0.0",
+    "description": "A utility library for Zera. Includes functions for generating random bytes, converting between binary and byte array formats, and more.",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "sideEffects": false,
+    "dependencies": {
+        "@noble/hashes": "catalog:"
+    },
+    "scripts": {
+        "build": "tsup --dts",
+        "test:vitest": "vitest run",
+        "dev": "tsup --watch --dts"
+    }
+}

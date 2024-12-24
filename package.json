@@ -1,0 +1,37 @@
+{
+    "name": "zera-ts",
+    "version": "0.0.0",
+    "description": "An comprehensive open-source Typescript toolkit, offering HD wallets, mnemonics, wordlists, and encrypted keyrings with minimal dependencies.",
+    "private": true,
+    "engines": {
+        "node": "22.12.0",
+        "npm": "please-use-pnpm",
+        "pnpm": ">=9",
+        "yarn": "please-use-pnpm"
+    },
+    "scripts": {
+        "build": "pnpm turbo build",
+        "build:libs": "pnpm turbo --filter \"./packages/**\" build",
+        "clean:dist": "pnpm rimraf \"**/dist\" --glob",
+        "clean:node_modules": "pnpm dlx rimraf \"**/node_modules\" --glob",
+        "lint": "biome check --diagnostic-level=error --max-diagnostics=200",
+        "lint:fix": "biome check --write",
+        "test:vitest": "pnpm turbo test:vitest"
+    },
+    "lint-staged": {
+        "**/*.+(js|json|ts|tsx)": "pnpm lint:fix",
+        "**/package.json": "sort-package-json"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "cross-env": "7.0.3",
+        "lint-staged": "15.2.11",
+        "rimraf": "6.0.1",
+        "sort-package-json": "2.12.0",
+        "tsup": "8.3.5",
+        "turbo": "2.3.3",
+        "typescript": "5.7.2",
+        "vitest": "2.1.8"
+    },
+    "packageManager": "pnpm@9.15.1"
+}
