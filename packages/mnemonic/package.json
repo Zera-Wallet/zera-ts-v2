@@ -1,0 +1,19 @@
+{
+    "name": "@zera-ts/mnemonic",
+    "version": "0.0.0",
+    "description": "A utility library for Zera. Includes functions for generating random bytes, converting between binary and byte array formats, and more.",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup --dts",
+        "dev": "tsup --watch --dts",
+        "test:vitest": "vitest run"
+    },
+    "dependencies": {
+        "@noble/hashes": "catalog:",
+        "@zera-ts/bytes": "workspace:*",
+        "@zera-ts/wordlists": "workspace:*"
+    }
+}
