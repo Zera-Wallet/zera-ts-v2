@@ -51,7 +51,7 @@ export class ZeraWordlist {
      */
     private static async loadLanguage(language: ZeraLanguage): Promise<string[]> {
         try {
-            const { wordlist } = await import(`./words/${language}`);
+            const { wordlist } = await import(`./words/${language}.ts`);
             const words = wordlist.split("\n");
             if (words.length !== 2048) {
                 throw new Error(`Invalid wordlist format for language: ${language}`);

@@ -47,6 +47,9 @@ importers:
 
   apps/demo:
     dependencies:
+      '@zera-ts/wordlists':
+        specifier: workspace:*
+        version: link:../../packages/wordlists
       next:
         specifier: 15.1.2
         version: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
