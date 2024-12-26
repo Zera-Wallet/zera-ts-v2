@@ -21,6 +21,9 @@
     "linter": {
         "enabled": true,
         "rules": {
+            "complexity": {
+                "noStaticOnlyClass": "warn"
+            },
             "recommended": true,
             "correctness": {
                 "useExhaustiveDependencies": "warn"

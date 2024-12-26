@@ -145,6 +145,8 @@ importers:
         specifier: workspace:*
         version: link:../wordlists
 
+  packages/storage: {}
+
   packages/wordlists: {}
 
 packages:

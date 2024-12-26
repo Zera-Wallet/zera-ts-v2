@@ -1,0 +1,14 @@
+{
+    "name": "@zera-ts/storage",
+    "version": "0.0.0",
+    "description": "Storage abstraction layer for Zera supporting browser localStorage and Node.js filesystem",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup --dts",
+        "dev": "tsup --watch --dts",
+        "test:vitest": "vitest run --passWithNoTests"
+    }
+}
