@@ -5,3 +5,4 @@ packages:
 
 catalog:
     "@noble/hashes": "1.6.1"
+    "@noble/curves": "1.7.0"

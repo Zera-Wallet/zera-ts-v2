@@ -1,0 +1,19 @@
+{
+    "name": "@zera-ts/hd-wallet",
+    "version": "0.0.0",
+    "description": "A TypeScript implementation of BIP32 Hierarchical Deterministic (HD) wallets and BIP44 paths. HD wallets allow deriving multiple key pairs from a single master seed, while HD paths provide a standard way to organize and derive keys for different cryptocurrencies and accounts.",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup --dts",
+        "dev": "tsup --watch --dts",
+        "test:vitest": "vitest run"
+    },
+    "dependencies": {
+        "@noble/curves": "catalog:",
+        "@noble/hashes": "catalog:",
+        "@zera-ts/bytes": "workspace:*"
+    }
+}

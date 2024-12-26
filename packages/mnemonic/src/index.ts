@@ -1,4 +1,4 @@
-import { ZeraMnemonic } from "./ZeraMnemonic";
+import { ZeraMnemonic, ZeraMnemonicStrength } from "./ZeraMnemonic";
 
 export default ZeraMnemonic;
-export { ZeraMnemonic };
+export { ZeraMnemonic, ZeraMnemonicStrength };

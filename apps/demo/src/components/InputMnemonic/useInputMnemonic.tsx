@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { ZeraMnemonic } from "@zera-ts/mnemonic";
+import { ZeraMnemonic, ZeraMnemonicStrength } from "@zera-ts/mnemonic";
 
 export type InputMnemonicContextType = {
-    strength: 128 | 256;
-    setStrength: (strength: 128 | 256) => void;
+    strength: ZeraMnemonicStrength;
+    setStrength: (strength: ZeraMnemonicStrength) => void;
     words: string[];
     setWords: React.Dispatch<React.SetStateAction<string[]>>;
     updateWord: (index: number, word: string) => void;
@@ -19,7 +19,7 @@ export function InputMnemonicProvider({
 }: {
     children: React.ReactNode;
 }) {
-    const [strength, setStrength] = useState<128 | 256>(128);
+    const [strength, setStrength] = useState<ZeraMnemonicStrength>(128);
     const [words, setWords] = useState<string[]>(Array(Math.floor(strength / 10.666)).fill(""));
     const [isValid, setIsValid] = useState(false);
 

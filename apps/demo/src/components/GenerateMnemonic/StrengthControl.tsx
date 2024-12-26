@@ -1,16 +1,17 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { ZeraMnemonicStrength } from "@zera-ts/mnemonic";
 
 export function StrengthControl({
     currentStrength,
     setStrength,
 }: {
-    currentStrength: 128 | 256;
-    setStrength: (strength: 128 | 256) => void;
+    currentStrength: ZeraMnemonicStrength;
+    setStrength: (strength: ZeraMnemonicStrength) => void;
 }) {
-    function SetStrengthButton({ strength }: { strength: 128 | 256 }) {
+    function SetStrengthButton({ strength }: { strength: ZeraMnemonicStrength }) {
         const isActive = currentStrength === strength;
-        const text = strength === 128 ? "12" : "24";
+        const text = Math.floor(strength / 10.666).toString();
 
         return (
             <button

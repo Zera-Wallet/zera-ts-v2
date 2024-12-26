@@ -2,6 +2,7 @@ import { pbkdf2 } from "@noble/hashes/pbkdf2";
 import { sha512 } from "@noble/hashes/sha512";
 import ZeraWordlist, { ZeraLanguage } from "@zera-ts/wordlists";
 
+import { sha256 } from "@noble/hashes/sha256";
 import { binaryToBytes, bytesToBinary, randomBytes } from "@zera-ts/bytes";
 import { normalize } from "./utils";
 
@@ -87,9 +88,9 @@ export class ZeraMnemonic {
         languageOrWordlist: ZeraLanguage | ZeraWordlist = "en",
     ): Promise<ZeraMnemonic> | ZeraMnemonic {
         const generateMnemonic = (entropy: Uint8Array, wordlist: ZeraWordlist): ZeraMnemonic => {
-            const words = wordlist.words;
             const entropyBits = bytesToBinary(entropy);
-            const fullChecksum = sha512(entropy);
+
+            const fullChecksum = sha256(entropy);
             const fullChecksumBits = bytesToBinary(fullChecksum);
             const checksumBits = fullChecksumBits.slice(0, (entropy.length * 8) / 32);
             const concatenatedBits = entropyBits + checksumBits;
@@ -98,7 +99,7 @@ export class ZeraMnemonic {
 
             const mnemonic = bitGroups.map((bits) => {
                 const index = Number.parseInt(bits, 2);
-                return words[index];
+                return wordlist.words[index];
             });
             return new ZeraMnemonic(mnemonic, wordlist.language);
         };
@@ -173,7 +174,7 @@ export class ZeraMnemonic {
         const entropyBits = concatenatedBits.slice(0, -((concatenatedBits.length / 33) | 0));
         const entropy = binaryToBytes(entropyBits);
 
-        const fullChecksum = sha512(entropy);
+        const fullChecksum = sha256(entropy);
         const fullChecksumBits = bytesToBinary(fullChecksum);
         const checksumBits = fullChecksumBits.slice(0, (entropy.length * 8) / 32);
 
