@@ -78,7 +78,7 @@ function testLogging(zeraMnemonic: ZeraMnemonic) {
 
     const solanaPath = ZeraHDPath.fromString("m/44'/501'/0'/0'");
     console.log(solanaPath.toString());
-    const solanaChild = ZeraHDWallet.fromMasterSeed(zeraMnemonic.toSeed(), "ed25519");
+    const solanaChild = ZeraHDWallet.fromMasterSeed(zeraMnemonic.toSeed(), "ed25519").derive(solanaPath);
 
     const solanaChildKp = Keypair.fromSeed(solanaChild.privateKey);
     console.log("solana child kp publickey", solanaChildKp.publicKey.toBase58());
