@@ -1,23 +1,23 @@
-import { ZeraStorage, ZeraStorageType } from "../ZeraStorage";
+import { ZeraKVStorage, ZeraStorageType } from "../ZeraStorage";
 
-export class LocalStorage extends ZeraStorage {
+export class LocalStorage extends ZeraKVStorage {
     constructor() {
         super(ZeraStorageType.LOCAL_STORAGE);
     }
 
-    async setItem(key: string, value: string): Promise<void> {
+    set(key: string, value: string): void {
         localStorage.setItem(key, value);
     }
 
-    async getItem(key: string): Promise<string | null> {
+    get(key: string): string | null {
         return localStorage.getItem(key);
     }
 
-    async removeItem(key: string): Promise<void> {
+    del(key: string): void {
         localStorage.removeItem(key);
     }
 
-    async clear(): Promise<void> {
+    clear(): void {
         localStorage.clear();
     }
 }

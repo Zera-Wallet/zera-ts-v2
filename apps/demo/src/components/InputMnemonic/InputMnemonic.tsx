@@ -15,7 +15,7 @@ function _InputMnemonic() {
     const { strength, setStrength } = useInputMnemonic();
 
     return (
-        <div className="flex flex-col w-full max-w-[420px] p-4 border border-border rounded-lg text-sm">
+        <div className="flex flex-col w-full text-sm">
             <div className="flex w-full justify-between mb-4">
                 <StrengthControl currentStrength={strength} setStrength={setStrength} />
                 <ValidationStatus />
@@ -65,7 +65,7 @@ function MnemonicInputWord({ index, word }: { index: number; word: string }) {
 
     return (
         <div className="flex items-center justify-start w-full py-0.5">
-            <p className="opacity-50 mr-1 select-none">{index + 1}.</p>
+            <p className="text-muted-foreground mr-1 select-none">{index + 1}.</p>
             <input
                 type="text"
                 className="w-full bg-transparent outline-none"

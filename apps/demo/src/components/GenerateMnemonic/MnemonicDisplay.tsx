@@ -24,7 +24,7 @@ export function MnemonicDisplay({
 function MnemonicWord({ word, index }: { word: string; index: number }) {
     return (
         <div className="flex items-center justify-start w-full py-0.5">
-            <p className="opacity-50 mr-1 select-none">{index + 1}.</p>
+            <p className="text-muted-foreground mr-1 select-none">{index + 1}.</p>
             <p className="text-start">{word}</p>
         </div>
     );

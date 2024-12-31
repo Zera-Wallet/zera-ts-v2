@@ -16,7 +16,7 @@ export function StrengthControl({
         return (
             <button
                 type="button"
-                className={cn(!isActive && "opacity-50 hover:opacity-100 transition-opacity")}
+                className={cn(!isActive && "text-muted-foreground hover:text-foreground transition-colors")}
                 disabled={isActive}
                 onClick={() => setStrength(strength)}
             >
@@ -27,10 +27,10 @@ export function StrengthControl({
 
     return (
         <div className="flex items-center justify-start ">
-            <p className="opacity-50 mr-2">Length:</p>
+            <p className="text-muted-foreground mr-2">Length:</p>
             <div className="flex items-center">
                 <SetStrengthButton strength={128} />
-                <p className="opacity-50 mx-1">|</p>
+                <p className="text-muted-foreground mx-1">|</p>
                 <SetStrengthButton strength={256} />
             </div>
         </div>

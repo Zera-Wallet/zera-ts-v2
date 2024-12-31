@@ -10,9 +10,12 @@
     },
     "dependencies": {
         "@ethereumjs/util": "9.1.0",
+        "@radix-ui/react-slot": "1.1.1",
         "@solana/web3.js": "1.98.0",
         "@zera-ts/hd-wallet": "workspace:*",
+        "@zera-ts/keyring": "workspace:*",
         "@zera-ts/mnemonic": "workspace:*",
+        "@zera-ts/storage": "workspace:*",
         "@zera-ts/wordlists": "workspace:*",
         "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",

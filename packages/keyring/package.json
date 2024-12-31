@@ -1,0 +1,20 @@
+{
+    "name": "@zera-ts/keyring",
+    "version": "0.0.0",
+    "description": "Keyring abstraction layer for Zera supporting secure key storage and management",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup --dts",
+        "dev": "tsup --watch --dts",
+        "test:vitest": "vitest run --passWithNoTests"
+    },
+    "dependencies": {
+        "@noble/ciphers": "catalog:",
+        "@noble/hashes": "catalog:",
+        "@zera-ts/bytes": "workspace:*",
+        "@zera-ts/storage": "workspace:*"
+    }
+}
