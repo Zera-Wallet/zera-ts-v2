@@ -28,6 +28,9 @@
             "correctness": {
                 "useExhaustiveDependencies": "warn"
             },
+            "suspicious": {
+                "noExplicitAny": "warn"
+            },
             "style": {
                 "useImportType": "off"
             }

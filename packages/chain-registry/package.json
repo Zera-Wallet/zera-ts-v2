@@ -1,0 +1,13 @@
+{
+    "name": "@zera-ts/chain-registry",
+    "version": "0.0.0",
+    "sideEffects": false,
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup --dts",
+        "dev": "tsup --watch --dts",
+        "test:vitest": "vitest run"
+    }
+}

@@ -15,6 +15,7 @@
         "@noble/ciphers": "catalog:",
         "@noble/hashes": "catalog:",
         "@zera-ts/bytes": "workspace:*",
-        "@zera-ts/storage": "workspace:*"
+        "@zera-ts/storage": "workspace:*",
+        "zod": "catalog:"
     }
 }

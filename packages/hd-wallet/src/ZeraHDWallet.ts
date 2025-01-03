@@ -71,7 +71,8 @@ export abstract class ZeraHDWallet<CT extends CurveType = CurveType> {
 
     derive(path: ZeraHDPath): ZeraHDWallet<CT> {
         let derivation: ZeraHDWallet<CT> = this;
-        for (const part of path.parts) {
+        const pathParts = path.parts.map((part) => part && { ...part });
+        for (const part of pathParts) {
             if (part == null) {
                 continue;
             }
@@ -86,11 +87,11 @@ export abstract class ZeraHDWallet<CT extends CurveType = CurveType> {
 export class Secp256k1HDWallet extends ZeraHDWallet<"secp256k1"> {
     deriveChild(part: HDPathPart): Secp256k1HDWallet {
         let childSeed: Uint8Array;
+        const value = part.hardened ? part.value + HARDENED_OFFSET : part.value;
         if (part.hardened) {
-            part.value += HARDENED_OFFSET;
-            childSeed = concatBytes(ZERO, this.privateKey, numberToU32(part.value));
+            childSeed = concatBytes(ZERO, this.privateKey, numberToU32(value));
         } else {
-            childSeed = concatBytes(secp256k1.getPublicKey(this.privateKey, true), numberToU32(part.value));
+            childSeed = concatBytes(secp256k1.getPublicKey(this.privateKey, true), numberToU32(value));
         }
 
         const hmacOutput = hmac(sha512, this.chainCode, childSeed);
@@ -112,9 +113,9 @@ export class Secp256k1HDWallet extends ZeraHDWallet<"secp256k1"> {
 export class Ed25519HDWallet extends ZeraHDWallet<"ed25519"> {
     deriveChild(part: HDPathPart): Ed25519HDWallet {
         let childSeed: Uint8Array;
+        const value = part.hardened ? part.value + HARDENED_OFFSET : part.value;
         if (part.hardened) {
-            part.value += HARDENED_OFFSET;
-            childSeed = concatBytes(ZERO, this.privateKey, numberToU32(part.value));
+            childSeed = concatBytes(ZERO, this.privateKey, numberToU32(value));
         } else {
             throw new Error("Non-hardened derivation is not supported for ed25519");
         }

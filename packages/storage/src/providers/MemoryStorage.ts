@@ -15,6 +15,15 @@ export class MemoryStorage extends ZeraKVStorage {
         return this.#data[key] ?? null;
     }
 
+    getKeys(prefix?: string): string[] {
+        return Object.keys(this.#data).filter((key) => {
+            if (prefix) {
+                return key.startsWith(prefix);
+            }
+            return true;
+        });
+    }
+
     del(key: string): void {
         delete this.#data[key];
     }

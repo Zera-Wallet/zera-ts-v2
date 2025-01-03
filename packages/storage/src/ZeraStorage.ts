@@ -14,6 +14,7 @@ export abstract class ZeraKVStorage {
 
     abstract set(key: string, value: string): void;
     abstract get(key: string): string | null;
+    abstract getKeys(prefix?: string): string[];
     abstract del(key: string): void;
 
     abstract clear(): void;
@@ -23,10 +24,17 @@ export abstract class ZeraEncryptedKVStorage {
     constructor(readonly kvStorage: ZeraKVStorage) {}
 
     abstract set(encryptionKey: string, key: string, value: string): void;
-    abstract getDecrypted(decryptionKey: string, key: string): string | null;
+    setDecrypted(key: string, value: string): void {
+        this.kvStorage.set(key, value);
+    }
 
     get(key: string): string | null {
         return this.kvStorage.get(key);
+    }
+    abstract getDecrypted(decryptionKey: string, key: string): string | null;
+
+    getKeys(prefix?: string): string[] {
+        return this.kvStorage.getKeys(prefix);
     }
     del(key: string): void {
         this.kvStorage.del(key);

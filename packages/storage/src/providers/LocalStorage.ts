@@ -13,6 +13,24 @@ export class LocalStorage extends ZeraKVStorage {
         return localStorage.getItem(key);
     }
 
+    getKeys(prefix?: string): string[] {
+        const keys: string[] = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const keyForIndex = localStorage.key(i);
+            if (!keyForIndex) {
+                continue;
+            }
+            if (prefix) {
+                if (keyForIndex.startsWith(prefix)) {
+                    keys.push(keyForIndex);
+                }
+            } else {
+                keys.push(keyForIndex);
+            }
+        }
+        return keys;
+    }
+
     del(key: string): void {
         localStorage.removeItem(key);
     }

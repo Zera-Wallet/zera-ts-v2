@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
+import { ZeraClientProviders } from "@/components/Zera/ZeraClientProviders";
 
-const inter = Inter({
+const manrope = Manrope({
     subsets: ["latin"],
 });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.className} antialiased dark`}>{children}</body>
+            <body className={`${manrope.className} antialiased dark`}>
+                <ZeraClientProviders>{children}</ZeraClientProviders>
+            </body>
         </html>
     );
 }

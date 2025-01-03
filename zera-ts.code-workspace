@@ -1,39 +1,35 @@
 {
     "folders": [
         {
-            "name": "🌱 zera-ts",
+            "name": "zera-ts",
             "path": "."
         },
         {
-            "name": "🧬 @zera-ts/bytes",
+            "name": "bytes",
             "path": "packages/bytes"
         },
         {
-            "name": "🔑 @zera-ts/hd-wallet",
+            "name": "hd-wallet",
             "path": "packages/hd-wallet"
         },
         {
-            "name": "🔒 @zera-ts/keyring",
+            "name": "keyring",
             "path": "packages/keyring"
         },
         {
-            "name": "📝 @zera-ts/logger",
-            "path": "packages/logger"
-        },
-        {
-            "name": "🔡 @zera-ts/mnemonic",
+            "name": "mnemonic",
             "path": "packages/mnemonic"
         },
         {
-            "name": "💾 @zera-ts/storage",
+            "name": "storage",
             "path": "packages/storage"
         },
         {
-            "name": "📚 @zera-ts/wordlists",
+            "name": "wordlists",
             "path": "packages/wordlists"
         },
         {
-            "name": "🎮 @zera-ts/nextjs-demo",
+            "name": "nextjs-demo",
             "path": "apps/demo"
         }
     ],
