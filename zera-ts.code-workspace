@@ -29,8 +29,12 @@
             "path": "packages/wordlists"
         },
         {
-            "name": "nextjs-demo",
-            "path": "apps/demo"
+            "name": "nextjs",
+            "path": "apps/nextjs"
+        },
+        {
+            "name": "nestjs",
+            "path": "apps/nestjs"
         }
     ],
     "settings": {
