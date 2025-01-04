@@ -1,6 +1,6 @@
 "use client";
 
-import { MyBalances } from "@/app/components/home/MyBalances";
+import { MyBalances } from "@/app/components/home/fungible-balances/MyBalances";
 import { cn } from "@/lib/utils";
 import { ChartCandlestick, HomeIcon, UserRound } from "lucide-react";
 import Link from "next/link";
