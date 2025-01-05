@@ -48,11 +48,9 @@ export class SolanaRpcFactory {
         console.log("reference", reference);
         switch (reference) {
             case this.MAINNET_REFERENCE:
-                return "https://api.mainnet-beta.solana.com";
+                return process.env.SOLANA_MAINNET_RPC_URL;
             case this.DEVNET_REFERENCE:
-                return "https://mainnet.helius-rpc.com/?api-key=73717bb7-3fa1-49f3-8052-f260134d8680";
-            // return "https://crossmin-mainbb2-4685.mainnet.rpcpool.com/4a3b32fb-d3f0-4dda-a668-0507156d139c";
-            // return "https://crossmin-devd808-5202.devnet.rpcpool.com/9f1d5d54-30a5-4077-ab13-dbba62a6a40a";
+                return process.env.SOLANA_DEVNET_RPC_URL;
             default:
                 throw new Error(`Unsupported reference: ${reference}`);
         }

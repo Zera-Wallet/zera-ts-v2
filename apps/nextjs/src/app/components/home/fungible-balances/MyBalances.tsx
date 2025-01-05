@@ -1,6 +1,8 @@
 import { useZeraKeyring } from "@/components/Zera/hooks/useZeraKeyring";
 import { Loader } from "@/components/ui/loader";
-import { AddressBalancesSection } from "./AddressBalancesSection";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { cn } from "@/lib/utils";
+import { BalanceRow } from "./BalanceRow";
 import { useBalances } from "./useBalances";
 
 export function MyBalances() {
@@ -26,9 +28,29 @@ export function MyBalances() {
     return (
         <div className="px-5 py-5 overflow-hidden flex flex-col">
             <h2 className="font-semibold text-lg mb-4">My Balances</h2>
-            {Object.entries(balances).map(([address, chainBalances]) => (
-                <AddressBalancesSection key={address} address={address} chainBalances={chainBalances} />
-            ))}
+            <Table>
+                <TableHeader className="[&_tr]:border-0">
+                    <TableRow className="text-[10px] hover:bg-transparent">
+                        <TableHead className="h-6">Asset</TableHead>
+                        <TableHead className="h-6 text-right">Balance</TableHead>
+                        <TableHead className="h-6 text-right">Estimated Value</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {Object.entries(balances).map(([address, chainBalances]) =>
+                        Object.entries(chainBalances).map(([chainId, balanceList]) =>
+                            balanceList.map((balance) => (
+                                <TableRow
+                                    key={`${address}-${chainId}-${balance.token.caip19Id}`}
+                                    className="border-0 hover:bg-muted/50"
+                                >
+                                    <BalanceRow balance={balance} />
+                                </TableRow>
+                            )),
+                        ),
+                    )}
+                </TableBody>
+            </Table>
         </div>
     );
 }

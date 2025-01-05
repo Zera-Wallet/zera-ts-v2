@@ -16,6 +16,7 @@
         "@solana/web3.js": "2.0.0",
         "@zera-ts/chain-registry": "workspace:*",
         "cache-manager": "5.7.6",
+        "coingecko-api-v3": "0.0.29",
         "express": "4.21.2",
         "nestjs-zod": "4.2.0",
         "zod": "catalog:"

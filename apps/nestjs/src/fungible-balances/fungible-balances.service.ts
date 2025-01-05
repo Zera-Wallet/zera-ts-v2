@@ -75,7 +75,7 @@ export class SolanaFungibleBalancesService {
         parsedTokenAccount: Awaited<ReturnType<typeof this.getParsedTokenAccountsByOwner>>["value"][number],
     ) {
         return {
-            amount: parsedTokenAccount.account.data.parsed.info.tokenAmount.uiAmountString,
+            amount: parsedTokenAccount.account.data.parsed.info.tokenAmount.amount,
             token: {
                 caip19Id: `solana:${this.reference}/token:${parsedTokenAccount.account.data.parsed.info.mint}` as const,
                 decimals: parsedTokenAccount.account.data.parsed.info.tokenAmount.decimals,
